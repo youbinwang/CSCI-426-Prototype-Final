@@ -171,7 +171,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad77ed4579702c14fa9920409dccfebd, type: 2}
+  - {fileID: 2100000, guid: ba85eafafd91ebe45bdaa7dd8d572304, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackName: {fileID: 11400000, guid: 95ebffe97d995468c9469d1ad4adbc77, type: 2}
   enemyHp: 1
+  isTriangle: 0
   actions: 00000000000000000200000003000000
   moveDistance: 5
   moveDuration: 0.25
@@ -272,6 +273,10 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -1}
   - {x: -1, y: 0, z: 0}
   - {x: 1, y: 0, z: 0}
+  possibleDirections_T:
+  - {x: -0.70710677, y: 0, z: -0.70710677}
+  - {x: 0.70710677, y: 0, z: -0.70710677}
+  - {x: 0, y: 0, z: 1}
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
