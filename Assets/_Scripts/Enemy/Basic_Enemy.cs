@@ -10,7 +10,9 @@ public class Basic_Enemy : MonoBehaviour
         Dash,
         Attack,
         Aim,
-        Shoot
+        Shoot,
+        Stay,
+        Movetogether,
     }
 
     [Header("Beat Track")]
@@ -36,13 +38,13 @@ public class Basic_Enemy : MonoBehaviour
     [SerializeField] public float explosionDuration = 0.25f;
 
     [Header("Enemy Aiming Parameters")]
-    [SerializeField] public float aimingMoveDistance = 1.0f;
-    [SerializeField] public float aimingMoveDuration = 0.25f;
-    private Transform player;
-
     [SerializeField] public LineRenderer aimLine;
     private bool isAiming;
     [SerializeField] public float aimingTime = 0.4f;
+
+    //[SerializeField] public float aimingMoveDistance = 1.0f;
+    //[SerializeField] public float aimingMoveDuration = 0.25f;
+    private Transform player;
 
     [Header("Enemy Shoot Parameters")]
     [SerializeField] public GameObject laserPrefab;
@@ -50,6 +52,7 @@ public class Basic_Enemy : MonoBehaviour
     private Vector3 playerLastPosition;
 
     //Wall Detect
+    [Header("Wall Detect")]
     public List<Vector3> possibleDirections = new List<Vector3>() { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
     private List<Vector3> initialDirections = new List<Vector3>() { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
 
@@ -120,6 +123,33 @@ public class Basic_Enemy : MonoBehaviour
             case Action.Shoot:
                 Shoot();
                 break;
+            case Action.Stay:
+                Stay();
+                break;
+            case Action.Movetogether:
+                Movetogether();
+                break;
+        }
+    }
+
+    //------------------------------------------ Stay ---------------------------------------
+    void Stay()
+    {
+        Debug.Log("Enemy Stay");
+    }
+
+    //------------------------------------------ Movetogether -------------------------------
+    void Movetogether()
+    {
+        Debug.Log("Enemy Move Together");
+    }
+
+    public void MoveDirction(Vector3 dir)
+    {
+        if (!RaycastForWall(dir))
+        {
+            Vector3 targetPosition = transform.position + dir * moveDistance;
+            StartCoroutine(MoveToPosition(transform.position, targetPosition, moveDuration));
         }
     }
 
@@ -255,11 +285,17 @@ public class Basic_Enemy : MonoBehaviour
     //------------------------------------------- Aiming ----------------------------------
     void Aim()
     {
-        isAiming = true;
+        if (!isAiming)
+        {
+            isAiming = true;
+            playerLastPosition = player.position;
+        }
+
+        //isAiming = true;
         StartCoroutine(AimingFinish());
         //Move When Aiming
-        Vector3 targetPosition = transform.position + RandomSquareDirection() * aimingMoveDistance;
-        StartCoroutine(MoveToPosition(transform.position, targetPosition, aimingMoveDuration));
+        //Vector3 targetPosition = transform.position + RandomSquareDirection() * aimingMoveDistance;
+        //StartCoroutine(MoveToPosition(transform.position, targetPosition, aimingMoveDuration));
 
         Debug.Log("Enemy ReadyToShoot");
     }
@@ -283,7 +319,7 @@ public class Basic_Enemy : MonoBehaviour
 
         aimLine.positionCount = 2;
         aimLine.SetPosition(0, transform.position);
-        aimLine.SetPosition(1, player.position);
+        aimLine.SetPosition(1, playerLastPosition);
     }
 
     void CancelAimLine()
@@ -293,7 +329,7 @@ public class Basic_Enemy : MonoBehaviour
             aimLine.positionCount = 0; // 清空瞄准线
         }
 
-        playerLastPosition = player.position;
+        //playerLastPosition = player.position;
     }
 
     //------------------------------------------- Shoot ----------------------------------

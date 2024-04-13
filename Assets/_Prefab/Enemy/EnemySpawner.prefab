@@ -98,4 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackName: {fileID: 11400000, guid: 95ebffe97d995468c9469d1ad4adbc77, type: 2}
   enemyList: []
-  spawnBeat: 3
+  scaleRange: {x: 0.5, y: 4}
+  spawnBeat: 4
