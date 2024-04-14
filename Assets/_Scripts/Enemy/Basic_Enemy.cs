@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SonicBloom.Koreo;
+using Unity.VisualScripting;
 
 public class Basic_Enemy : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class Basic_Enemy : MonoBehaviour
     private List<Vector3> initialDirections_T = new List<Vector3>() { (Vector3.back + Vector3.left).normalized, (Vector3.back + Vector3.right).normalized, Vector3.forward };
 
     public LayerMask wallLayer;
+    public GradeSystem gradeSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -381,6 +383,8 @@ public class Basic_Enemy : MonoBehaviour
 
     void DestroyEnemy()
     {
+        GradeSystem.TriggerEnemDestroyed();
+        AudioManager.TriggerEnemDestroyed();
         Destroy(gameObject);
     }
 }

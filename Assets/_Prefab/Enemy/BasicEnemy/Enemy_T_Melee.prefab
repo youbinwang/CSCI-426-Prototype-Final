@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4d995f573fb45f483732ade58e6a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackName: {fileID: 11400000, guid: 95ebffe97d995468c9469d1ad4adbc77, type: 2}
+  trackName: {fileID: 11400000, guid: ce47cbebd056ac04a82c490860bb2682, type: 2}
   enemyHp: 1
   isTriangle: 1
   actions: 00000000000000000000000001000000
@@ -293,8 +293,6 @@ MonoBehaviour:
   attackTransform: {fileID: 586852568159347325}
   explosionScaleValue: 5
   explosionDuration: 0.25
-  aimingMoveDistance: 1
-  aimingMoveDuration: 0.25
   aimLine: {fileID: 6690681694406589834}
   aimingTime: 0.4
   laserPrefab: {fileID: 1469870389136209334, guid: ce4a1627dceb34679a56669cfe5c4d26, type: 3}
@@ -311,6 +309,7 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  gradeSystem: {fileID: 0}
 --- !u!1 &9006016430048470267
 GameObject:
   m_ObjectHideFlags: 0
