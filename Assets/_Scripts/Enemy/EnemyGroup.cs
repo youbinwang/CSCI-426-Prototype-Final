@@ -33,7 +33,7 @@ public class EnemyGroup : MonoBehaviour
     void Start()
     {
         Koreographer.Instance.RegisterForEvents(trackName.EventID, GroupAction);
-        beatNumber = 0; // Enemy Movement Count
+        beatNumber = 1; // Enemy Movement Count
 
         moveList = new Direction[4];
         RerollMove();
