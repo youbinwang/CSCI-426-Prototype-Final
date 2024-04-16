@@ -152,6 +152,7 @@ public class Basic_Enemy : MonoBehaviour
         {
             Vector3 targetPosition = transform.position + dir * moveDistance;
             StartCoroutine(MoveToPosition(transform.position, targetPosition, moveDuration));
+            //Pass here to move in a group
         }
     }
 
