@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         }*/
     }
 
-    void EnemyAction(KoreographyEvent koreoEvent)//When On the Beat
+    void EnemyAction(KoreographyEvent koreoEvent) //Loop When On the Beat
     {
         if (timer == spawnBeat)
         {

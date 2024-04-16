@@ -1049,12 +1049,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532757463494922927, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: spawnBeat
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
+      propertyPath: trackName
+      value: 
+      objectReference: {fileID: 11400000, guid: ce47cbebd056ac04a82c490860bb2682, type: 2}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: enemyList.Array.size
       value: 2
@@ -1077,7 +1081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6331575124091799729, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -28.71
       objectReference: {fileID: 0}
     - target: {fileID: 6331575124091799729, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1267,11 +1271,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 86058293015757511, guid: cf1f942f2c55447d9a278e6bbc3c4852, type: 3}
       propertyPath: actions.Array.data[0]
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 86058293015757511, guid: cf1f942f2c55447d9a278e6bbc3c4852, type: 3}
       propertyPath: actions.Array.data[1]
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2103121419992193331, guid: cf1f942f2c55447d9a278e6bbc3c4852, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value

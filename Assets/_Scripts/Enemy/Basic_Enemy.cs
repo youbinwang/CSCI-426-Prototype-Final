@@ -70,7 +70,7 @@ public class Basic_Enemy : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").transform;
 
-        beatNumber = 1;
+        beatNumber = 0; // Enemy Attack Count
         explosionScale = new Vector3(explosionScaleValue, explosionScaleValue, explosionScaleValue);
         CancelAimLine();
     }
