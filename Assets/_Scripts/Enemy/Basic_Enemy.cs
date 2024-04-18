@@ -63,7 +63,8 @@ public class Basic_Enemy : MonoBehaviour
     public LayerMask wallLayer;
     public GradeSystem gradeSystem;
 
-    // Start is called before the first frame update
+
+    
     void Start()
     {
         Koreographer.Instance.RegisterForEvents(trackName.EventID, EnemyAction);
@@ -74,8 +75,8 @@ public class Basic_Enemy : MonoBehaviour
         explosionScale = new Vector3(explosionScaleValue, explosionScaleValue, explosionScaleValue);
         CancelAimLine();
     }
-
-    // Update is called once per frame
+    
+    
     void FixedUpdate()
     {
         if (enemyHp <= 0)
@@ -155,6 +156,7 @@ public class Basic_Enemy : MonoBehaviour
             //Pass here to move in a group
         }
     }
+    
 
     //------------------------------------------- Dash/Move ----------------------------------
     void Dash()
@@ -224,27 +226,32 @@ public class Basic_Enemy : MonoBehaviour
         }
     }
 
-    bool RaycastForWall(Vector3 direction)
+    public bool RaycastForWall(Vector3 direction)
     {
+        // RaycastHit hit;
+        //
+        // Vector3 rayEndPoint = transform.position + direction * moveDistance;
+        //
+        // if (Physics.Raycast(transform.position, direction, out hit, moveDistance + 0.1f, wallLayer))
+        // {
+        //     //Debug.Log("111");
+        //     return true;
+        // }
+        // else
+        // {
+        //     Debug.DrawLine(transform.position, rayEndPoint, Color.green, 2f);
+        // }
+        //
+        // return false;
+
+        
         RaycastHit hit;
-
-        Vector3 rayEndPoint = transform.position + direction * moveDistance;
-
-
-        if (Physics.Raycast(transform.position, direction, out hit, moveDistance + 0.1f, wallLayer))
+        if (Physics.Raycast(transform.position, direction, out hit, moveDistance, wallLayer))
         {
-
-            //Debug.Log("111");
             return true;
         }
-        else
-        {
-
-            Debug.DrawLine(transform.position, rayEndPoint, Color.green, 2f);
-        }
-
         return false;
-
+        //Robin: New Recast, Transmit to EnemyGroup.cs to determine whether the whole group can be moved
     }
 
     void ResetDirections()
@@ -329,7 +336,7 @@ public class Basic_Enemy : MonoBehaviour
     {
         if (aimLine != null)
         {
-            aimLine.positionCount = 0; // 清空瞄准线
+            aimLine.positionCount = 0;
         }
 
         //playerLastPosition = player.position;

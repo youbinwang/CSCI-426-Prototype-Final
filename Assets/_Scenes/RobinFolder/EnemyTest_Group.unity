@@ -948,7 +948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: spawnBeat
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: trackName
@@ -960,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: rangedProbability
-      value: 0.45
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: enemyList.Array.size

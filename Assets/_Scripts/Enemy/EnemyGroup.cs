@@ -29,39 +29,102 @@ public class EnemyGroup : MonoBehaviour
     [Header("Move Direction")]
     [SerializeField] public Direction[] moveList = new Direction[4];
 
-    // Start is called before the first frame update
     void Start()
     {
         Koreographer.Instance.RegisterForEvents(trackName.EventID, GroupAction);
         beatNumber = 1; // Enemy Movement Count
 
         moveList = new Direction[4];
+        
         RerollMove();
     }
-
-    // Update is called once per frame
+    
+    
     void Update()
     {
         CheckEnemies();
     }
 
-    void GroupAction(KoreographyEvent koreoEvent)//When On the Beat
+    //When On the Beat
+    void GroupAction(KoreographyEvent koreoEvent)
     {
+        // if (this != null)
+        // {
+        //     DoMove(beatNumber);
+        //
+        //     if (beatNumber == 3)
+        //     {
+        //         beatNumber = 0;
+        //     }
+        //     else
+        //     {
+        //         beatNumber++;
+        //     }
+        // }
+        
         if (this != null)
         {
-            DoMove(beatNumber);
-
-            if (beatNumber == 3)
+            if (beatNumber % 4 == 3)
             {
-                beatNumber = 0;
+                Debug.Log("No Movement on 4th Beat");
+            }
+            else if (CanGroupMove())
+            {
+                DoMove(beatNumber % 4);
             }
             else
             {
-                beatNumber++;
+                RerollMove();
             }
+            beatNumber++;
+            
+            //Robin: New Group Move Logic
         }
     }
-
+    
+    //-------------------------------- Group Stop Move ---------------------------------
+    
+    private bool CanGroupMove()
+    {
+        Vector3 direction = GetDirectionVector(moveList[beatNumber % moveList.Length]);
+        foreach (GameObject enemy in enemyList)
+        {
+            if (enemy != null)
+            {
+                Basic_Enemy enemyScript = enemy.GetComponent<Basic_Enemy>();
+                if (enemyScript.RaycastForWall(direction))
+                {
+                    return false;
+                }
+            }
+            //Robin: If an Enemy Detected the Walls
+        }
+        return true;
+        //Robin: If no Enemy Detected the Walls
+    }
+    
+    private Vector3 GetDirectionVector(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Forward:
+                return Vector3.forward;
+            case Direction.Back:
+                return Vector3.back;
+            case Direction.Left:
+                return Vector3.left;
+            case Direction.Right:
+                return Vector3.right;
+            case Direction.BackLeft:
+                return (Vector3.back + Vector3.left).normalized;
+            case Direction.BackRight:
+                return (Vector3.back + Vector3.right).normalized;
+            default:
+                return Vector3.zero;
+        }
+    }
+    
+    
     void DoMove(int index)
     {
         Direction move = moveList[index];
@@ -96,7 +159,7 @@ public class EnemyGroup : MonoBehaviour
     //------------------------------- Reroll --------------------------------
     void RerollMove()
     {
-        Debug.Log("Rerolling !");
+        Debug.Log("Rerolling!");
 
         if (isTriangleMove)
         {
@@ -114,11 +177,8 @@ public class EnemyGroup : MonoBehaviour
                 moveList[i] = randomDirection;
             }
         }
-
         moveList[3] = Direction.Reroll;
     }
-
-
 
     //-------------------------------- Move ---------------------------------
     void MoveForward()
@@ -222,5 +282,4 @@ public class EnemyGroup : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
