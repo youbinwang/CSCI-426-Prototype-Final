@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class PlayerController : MonoBehaviour
     public float health;
     public float originalHealth;
     //public bool isInvisible;
+
+    [Header("Player Feedbacks")]
+    [SerializeField] public MMFeedbacks playerHurt;
+    [SerializeField] public MMFeedbacks killEnemy;
+    [SerializeField] public MMFeedbacks playerDie;
+    
+
 
     void Update()
     {
@@ -49,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0)
         {
+            playerDie.PlayFeedbacks();
             Destroy(gameObject);
         }
 
@@ -75,6 +84,8 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "EnemyAttack")
         {
             health--;
+            playerHurt.PlayFeedbacks(gameObject.transform.position);
+            //palyerHurtParticle.Play(gameObject.transform.position,1);
         }
     }
 }

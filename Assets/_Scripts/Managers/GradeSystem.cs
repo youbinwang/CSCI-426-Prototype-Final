@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MoreMountains.Feedbacks;
 
 [System.Serializable]
 public struct DifficultyLevel
@@ -25,6 +26,9 @@ public class GradeSystem : MonoBehaviour
     public DifficultyLevel[] levels;
     public int currentLevelIndex = 0;
     public float score;
+    public AudioSource enemyKilled;
+    public AudioClip[] audioClips;
+    
 
     public static event Action OnEnemyDestroy;
 
@@ -61,6 +65,13 @@ public class GradeSystem : MonoBehaviour
     public void AddScore()
     {
         score++;
+        currentLevelIndex++;
+        if (currentLevelIndex >= 5)
+        {
+            currentLevelIndex = 0;
+        }
+        enemyKilled.clip = audioClips[currentLevelIndex];  // 更换到下一个音频剪辑
+        enemyKilled.Play();
 
 
     }
