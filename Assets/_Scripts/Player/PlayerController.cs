@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public MMFeedbacks playerHurt;
     [SerializeField] public MMFeedbacks killEnemy;
     [SerializeField] public MMFeedbacks playerDie;
+    [SerializeField] public MMFeedbacks playerFlicker;
     
 
 
@@ -53,6 +55,13 @@ public class PlayerController : MonoBehaviour
         {
             dashCooldownTimer -= Time.deltaTime;
             cooldownRing.fillAmount = dashCooldownTimer / dashCooldown; 
+        }
+        else if(dashCooldownTimer < 0f)
+        {
+            //Dash CD Finish
+            playerFlicker.PlayFeedbacks(gameObject.transform.position);
+
+            dashCooldownTimer = 0;
         }
 
         if(health <= 0)
@@ -86,6 +95,14 @@ public class PlayerController : MonoBehaviour
             health--;
             playerHurt.PlayFeedbacks(gameObject.transform.position);
             //palyerHurtParticle.Play(gameObject.transform.position,1);
+
+            // Camera Shake
+            Cinemachine.CinemachineImpulseSource impulseSource = Camera.main.GetComponent<Cinemachine.CinemachineImpulseSource>();
+            if (impulseSource != null)
+            {
+                impulseSource.GenerateImpulse();
+            }
+
         }
     }
 }
