@@ -29493,6 +29493,7 @@ MonoBehaviour:
   playerHurt: {fileID: 1790447925}
   killEnemy: {fileID: 1936725241}
   playerDie: {fileID: 1613407057}
+  playerFlicker: {fileID: 0}
 --- !u!96 &2015345554
 TrailRenderer:
   serializedVersion: 3
