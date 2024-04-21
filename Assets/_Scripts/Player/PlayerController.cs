@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float dashCooldownTimer = 0f;
     public float health;
     public float originalHealth;
+    /*public Transform hpTransfrom;
+    public Image hpBar;*/
     //public bool isInvisible;
 
     [Header("Player Feedbacks")]
@@ -26,12 +28,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public MMFeedbacks killEnemy;
     [SerializeField] public MMFeedbacks playerDie;
     [SerializeField] public MMFeedbacks playerFlicker;
-    
+
+    [Header("HP")]
+    [SerializeField] public GameObject HP_1;
+    [SerializeField] public GameObject HP_2;
+    [SerializeField] public GameObject HP_3;
+    [SerializeField] public GameObject HP_4;
+
+    private void Start()
+    {
+        ResetHP();
+    }
 
 
     void Update()
     {
-        
+        //hpBar.transform.position = hpTransfrom.position;
+
         if (!isDashing) 
         {
             float moveHorizontal = Input.GetAxisRaw("Horizontal");
@@ -70,7 +83,29 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        healthBar.fillAmount = health / originalHealth;
+        //healthBar.fillAmount = health / originalHealth;
+
+        //HP Change
+        if(health == 5)
+        {
+            ResetHP();
+        }
+        else if(health == 4)
+        {
+            HP3();
+        }
+        else if (health == 3)
+        {
+            HP2();
+        }
+        else if (health == 2)
+        {
+            HP1();
+        }
+        else if (health == 1)
+        {
+            HP0();
+        }
     }
 
     System.Collections.IEnumerator Dash()
@@ -104,5 +139,45 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+    }
+
+    void ResetHP()
+    {
+        HP_1.SetActive(true);
+        HP_2.SetActive(true);
+        HP_3.SetActive(true);
+        HP_4.SetActive(true);
+    }
+
+    void HP3()
+    {
+        HP_1.SetActive(true);
+        HP_2.SetActive(true);
+        HP_3.SetActive(true);
+        HP_4.SetActive(false);
+    }
+
+    void HP2()
+    {
+        HP_1.SetActive(true);
+        HP_2.SetActive(true);
+        HP_3.SetActive(false);
+        HP_4.SetActive(false);
+    }
+
+    void HP1()
+    {
+        HP_1.SetActive(true);
+        HP_2.SetActive(false);
+        HP_3.SetActive(false);
+        HP_4.SetActive(false);
+    }
+
+    void HP0()
+    {
+        HP_1.SetActive(false);
+        HP_2.SetActive(false);
+        HP_3.SetActive(false);
+        HP_4.SetActive(false);
     }
 }
