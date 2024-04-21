@@ -106,19 +106,40 @@ public class PlayerController : MonoBehaviour
         {
             HP0();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            Debug.Log("Game Quit");
+        }
     }
 
-    System.Collections.IEnumerator Dash()
+    IEnumerator Dash()
     {
         isDashing = true;
         float startTime = Time.time;
+        int wallLayer = LayerMask.GetMask("Wall");
 
-        while (Time.time < startTime + dashDuration)
+        // while (Time.time < startTime + dashDuration)
+        // {
+        //     transform.position += moveDirection * (dashDistance / dashDuration) * Time.deltaTime;
+        //     yield return null;
+        // }
+        
+        if (!Physics.Raycast(transform.position, moveDirection, dashDistance, wallLayer))
         {
-            transform.position += moveDirection * (dashDistance / dashDuration) * Time.deltaTime;
-            yield return null;
+            while (Time.time < startTime + dashDuration)
+            {
+                transform.position += moveDirection * (dashDistance / dashDuration) * Time.deltaTime;
+                yield return null;
+            }
         }
-
+        else
+        {
+            playerFlicker.PlayFeedbacks(gameObject.transform.position);
+            Debug.Log("Blocked by a wall!");
+        }
+        
         dashCooldownTimer = dashCooldown; 
         isDashing = false;
     }
