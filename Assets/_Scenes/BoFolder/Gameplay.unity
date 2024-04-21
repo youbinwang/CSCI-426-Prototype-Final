@@ -14179,7 +14179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: minSpawnRadius
-      value: 5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: playerTransform
