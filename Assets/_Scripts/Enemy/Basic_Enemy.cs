@@ -391,6 +391,7 @@ public class Basic_Enemy : MonoBehaviour
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     void DestroyEnemy()
     {
         GradeSystem.TriggerEnemDestroyed(gameObject.transform.position);

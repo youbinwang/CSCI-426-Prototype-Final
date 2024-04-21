@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
+using Cinemachine;
 
 [System.Serializable]
 public struct DifficultyLevel
@@ -76,6 +77,15 @@ public class GradeSystem : MonoBehaviour
             currentLevelIndex = 0;
         }
         enemyKilled.clip = audioClips[currentLevelIndex];  // 更换到下一个音频剪辑
+        
+        // Camera Shake
+        Cinemachine.CinemachineImpulseSource impulseSource = Camera.main.GetComponent<Cinemachine.CinemachineImpulseSource>();
+        if (impulseSource != null)
+        {
+            impulseSource.GenerateImpulse();
+        }
+        
+        
         enemyKilled.Play();
         playerEnemy.PlayFeedbacks(enemyPosition);
         
