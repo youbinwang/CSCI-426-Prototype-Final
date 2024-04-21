@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0)
         {
-            playerDie.PlayFeedbacks();
+            playerDie.PlayFeedbacks(gameObject.transform.position);
             Destroy(gameObject);
         }
 

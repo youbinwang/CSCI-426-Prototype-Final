@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SonicBloom.Koreo;
 using Unity.VisualScripting;
+using MoreMountains;
 
 public class Basic_Enemy : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class Basic_Enemy : MonoBehaviour
 
     public LayerMask wallLayer;
     public GradeSystem gradeSystem;
+    
 
 
     
@@ -391,7 +393,7 @@ public class Basic_Enemy : MonoBehaviour
 
     void DestroyEnemy()
     {
-        GradeSystem.TriggerEnemDestroyed();
+        GradeSystem.TriggerEnemDestroyed(gameObject.transform.position);
         AudioManager.TriggerEnemDestroyed();
         Destroy(gameObject);
     }

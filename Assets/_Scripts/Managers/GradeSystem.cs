@@ -28,9 +28,12 @@ public class GradeSystem : MonoBehaviour
     public float score;
     public AudioSource enemyKilled;
     public AudioClip[] audioClips;
-    
+    [SerializeField] private MMFeedbacks playerEnemy;
+    private Vector3 enemyPos;
 
-    public static event Action OnEnemyDestroy;
+
+    public delegate void EnemyDestroyHandler(Vector3 position);
+    public static event EnemyDestroyHandler OnEnemyDestroy;
 
     [Header ("DynamicParameters")]
     public Text uiText;
@@ -57,12 +60,14 @@ public class GradeSystem : MonoBehaviour
     }
 
 
-    public static void TriggerEnemDestroyed()
+    public static void TriggerEnemDestroyed(Vector3 enemyPosition)
     {
-        OnEnemyDestroy?.Invoke();
+        OnEnemyDestroy?.Invoke(enemyPosition);
+
+        
     }
 
-    public void AddScore()
+    public void AddScore(Vector3 enemyPosition)
     {
         score++;
         currentLevelIndex++;
@@ -72,6 +77,8 @@ public class GradeSystem : MonoBehaviour
         }
         enemyKilled.clip = audioClips[currentLevelIndex];  // 更换到下一个音频剪辑
         enemyKilled.Play();
+        playerEnemy.PlayFeedbacks(enemyPosition);
+        
 
 
     }
