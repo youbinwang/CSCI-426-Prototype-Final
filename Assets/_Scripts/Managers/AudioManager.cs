@@ -100,7 +100,7 @@ public class AudioManager : MonoBehaviour
         {
             if (!newInstruments.Contains(source) && source != null)
             {
-                source.volume = 0;
+                source.volume = 0f;
             }
         }
 
@@ -109,7 +109,7 @@ public class AudioManager : MonoBehaviour
         {
             if (source != null && source.volume == 0)
             {
-                source.volume = 1;
+                source.volume = 0.45f;
             }
         }
 
