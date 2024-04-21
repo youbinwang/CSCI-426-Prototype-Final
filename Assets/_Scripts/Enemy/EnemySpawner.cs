@@ -8,8 +8,15 @@ public class EnemySpawner : MonoBehaviour
     [Header("Beat Track")]
     [SerializeField] public KoreographyTrack trackName;
 
-    [Header("Spawn Points")]
-    [SerializeField] public List<GameObject> spawnPoints;
+    // [Header("Spawn Points")]
+    // [SerializeField] public List<GameObject> spawnPoints;
+    
+    [Header("Player Reference")]
+    [SerializeField] public Transform playerTransform;
+    
+    [Header("Spawn Radius")]
+    [SerializeField] public float maxSpawnRadius = 50f;
+    [SerializeField] public float minSpawnRadius = 20f;
     
     [Header("Enemy List")]
     [SerializeField] public List<GameObject> meleeEnemies;
@@ -59,6 +66,36 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // private void SpawnEnemy()
+    // {
+    //     if (meleeEnemies.Count == 0 && rangedEnemies.Count == 0)
+    //     {
+    //         Debug.LogWarning("No enemy types specified.");
+    //         return;
+    //     }
+    //
+    //     if (spawnPoints.Count == 0)
+    //     {
+    //         Debug.LogWarning("No spawn points specified.");
+    //         return;
+    //     }
+    //
+    //     //Spawn Points
+    //     int spawnIndex = Random.Range(0, spawnPoints.Count);
+    //     GameObject spawnPoint = spawnPoints[spawnIndex];
+    //
+    //     //Ranged Enemy Spawn Rate
+    //     GameObject enemyPrefab = Random.Range(0f, 1f) < rangedProbability ? GetRandomEnemy(rangedEnemies) : GetRandomEnemy(meleeEnemies);
+    //
+    //     float randomScale = Random.Range(scaleRange.x, scaleRange.y);
+    //     Vector3 spawnScale = new(randomScale, 1, randomScale);
+    //
+    //     GameObject enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
+    //     enemy.transform.localScale = spawnScale;
+    //
+    //     enemy.transform.localScale = spawnScale;
+    // }
+
     private void SpawnEnemy()
     {
         if (meleeEnemies.Count == 0 && rangedEnemies.Count == 0)
@@ -66,29 +103,40 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogWarning("No enemy types specified.");
             return;
         }
-
-        if (spawnPoints.Count == 0)
-        {
-            Debug.LogWarning("No spawn points specified.");
-            return;
-        }
-
-        //Spawn Points
-        int spawnIndex = Random.Range(0, spawnPoints.Count);
-        GameObject spawnPoint = spawnPoints[spawnIndex];
-
-        //Ranged Enemy Spawn Rate
+        
+        Vector3 spawnPosition = GenerateSpawnPosition();
+        
         GameObject enemyPrefab = Random.Range(0f, 1f) < rangedProbability ? GetRandomEnemy(rangedEnemies) : GetRandomEnemy(meleeEnemies);
-
+        
         float randomScale = Random.Range(scaleRange.x, scaleRange.y);
-        Vector3 spawnScale = new(randomScale, 1, randomScale);
-
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
-        enemy.transform.localScale = spawnScale;
-
+        Vector3 spawnScale = new Vector3(randomScale, 1, randomScale);
+        
+        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         enemy.transform.localScale = spawnScale;
     }
 
+    private Vector3 GenerateSpawnPosition()
+    {
+        Vector3 spawnPosition;
+        float angle, radius, x, z;
+
+        do
+        {
+            // Map Size
+            angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+            radius = Random.Range(minSpawnRadius, maxSpawnRadius);
+            
+            x = Mathf.Cos(angle) * radius;
+            z = Mathf.Sin(angle) * radius;
+            
+            spawnPosition = new Vector3(x, 0f, z);
+
+        } while (spawnPosition.x < -22f || spawnPosition.x > 23f || spawnPosition.z < -21f || spawnPosition.z > 24f);
+
+        return spawnPosition;
+    }
+    
+    
     private GameObject GetRandomEnemy(List<GameObject> enemyList)
         {
             if (enemyList.Count == 0)

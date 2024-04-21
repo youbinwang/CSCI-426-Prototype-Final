@@ -531,7 +531,7 @@ Transform:
   m_GameObject: {fileID: 257383439}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.5, z: -23.500008}
+  m_LocalPosition: {x: 1, y: 0.5, z: -23.5}
   m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1324,6 +1324,18 @@ PrefabInstance:
       value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
+      propertyPath: maxSpawnRadius
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
+      propertyPath: minSpawnRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1922300668}
+    - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: rangedProbability
       value: 0.3
       objectReference: {fileID: 0}
@@ -1410,7 +1422,7 @@ PrefabInstance:
     - target: {fileID: 4274057990326580589, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: rangedEnemies.Array.data[1]
       value: 
-      objectReference: {fileID: 6091706433510721500, guid: 62b3c44d1db0870448c63897d9254396, type: 3}
+      objectReference: {fileID: 6091706433510721500, guid: a61f5f4cf8d19ad4eb24c5023ed0e7ae, type: 3}
     - target: {fileID: 6331575124091799729, guid: cccf8df39272044f19185a5879b0f068, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
