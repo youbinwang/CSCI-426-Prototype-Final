@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -976,10 +976,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -996,7 +996,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -1106,7 +1106,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -2715,10 +2715,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -2845,7 +2845,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -5283,10 +5283,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -5303,7 +5303,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -5413,7 +5413,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -5594,10 +5594,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -5614,7 +5614,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -5724,7 +5724,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -14648,10 +14648,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -14668,7 +14668,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -14778,7 +14778,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -15349,10 +15349,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -15369,7 +15369,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -15479,7 +15479,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -23072,10 +23072,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -23092,7 +23092,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -23202,7 +23202,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -25130,10 +25130,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -25150,7 +25150,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -25260,7 +25260,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -26006,10 +26006,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -26026,7 +26026,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -26136,7 +26136,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -27812,10 +27812,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -27832,7 +27832,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -27942,7 +27942,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -29990,10 +29990,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -30010,7 +30010,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -30120,7 +30120,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
@@ -32322,10 +32322,10 @@ MonoBehaviour:
   lockTransforms: 0
   renderWireFrame: 0
   lightType: 0
-  lightMultiplier: 3.43
-  spotExponent: 12
-  constantAttenuation: 1
-  linearAttenuation: 11.338681
+  lightMultiplier: 3
+  spotExponent: 15
+  constantAttenuation: 5
+  linearAttenuation: 1
   quadraticAttenuation: 100
   aspect: 1
   slices: 120
@@ -32342,7 +32342,7 @@ MonoBehaviour:
   shadowBlurSize: 0
   renderFullShadows: 0
   _renderShadowMapInUpdate: 0
-  spotRange: 9.72
+  spotRange: 28.56
   spotNear: 0.1
   spotAngle: 97.5
   orthoSize: 1
@@ -32452,7 +32452,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 9.72
+  far clip plane: 28.56
   field of view: 45
   orthographic: 0
   orthographic size: 2.5
