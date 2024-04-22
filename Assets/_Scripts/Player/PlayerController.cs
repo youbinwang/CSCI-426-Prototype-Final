@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float dashDistance = 10.0f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1.0f;
-    public Image cooldownRing; // UIÔ²»·£¬ÓÃÓÚÏÔÊ¾ÀäÈ´×´Ì¬
+    public Image cooldownRing; // UIÔ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½È´×´Ì¬
     public Image healthBar;
 
     private Vector3 moveDirection = Vector3.zero;
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         }
 
         
-        if (Input.GetMouseButtonDown(0) && dashCooldownTimer <= 0f) 
+        if (Input.GetKeyDown(KeyCode.Space) && dashCooldownTimer <= 0f) 
         {
             StartCoroutine(Dash());
         }
