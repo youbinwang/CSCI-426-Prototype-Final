@@ -17,7 +17,6 @@ public struct DifficultyLevel
         this.name = name;
         this.uiTextColor = uiTextColor;
         this.scoreThrehold = scoreThrehold;
-        
     }
 }
 
@@ -31,12 +30,14 @@ public class GradeSystem : MonoBehaviour
     [SerializeField] private MMFeedbacks playerEnemy;
     private Vector3 enemyPos;
 
-
+    [Header ("DynamicParameters")]
+    public Text uiText;
+    public Text finalUiText;
+    
     public delegate void EnemyDestroyHandler(Vector3 position);
     public static event EnemyDestroyHandler OnEnemyDestroy;
 
-    [Header ("DynamicParameters")]
-    public Text uiText;
+   
     void Start()
     {
         UpdateDifficulty();
@@ -45,6 +46,7 @@ public class GradeSystem : MonoBehaviour
     void Update()
     {
         uiText.text = $"Score: {score}";
+        finalUiText.text = $"Score: {score}";
         CheckDifficulty();
     }
 

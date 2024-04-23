@@ -131,7 +131,7 @@ public class EnemySpawner : MonoBehaviour
             
             spawnPosition = new Vector3(x, 0f, z);
 
-        } while (spawnPosition.x < -21.5f || spawnPosition.x > 22.5f || spawnPosition.z < -20.5f || spawnPosition.z > 23.5f);
+        } while (spawnPosition.x < -20f || spawnPosition.x > 21.5f || spawnPosition.z < -19f || spawnPosition.z > 22f);
 
         return spawnPosition;
     }

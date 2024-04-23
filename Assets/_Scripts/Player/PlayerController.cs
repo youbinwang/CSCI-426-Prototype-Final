@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public GameObject HP_2;
     [SerializeField] public GameObject HP_3;
     [SerializeField] public GameObject HP_4;
+    
+    [Header("UI")]
+    [SerializeField] public GameObject inGameUi;
+    [SerializeField] public GameObject finalGameUi;
+    
 
     private void Start()
     {
@@ -116,6 +121,8 @@ public class PlayerController : MonoBehaviour
     {
         playerDie.PlayFeedbacks(gameObject.transform.position);
         Destroy(gameObject);
+        inGameUi.SetActive(false);
+        finalGameUi.SetActive(true);
     }
     
 
