@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
-using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -79,8 +78,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0)
         {
-            playerDie.PlayFeedbacks(gameObject.transform.position);
-            Destroy(gameObject);
+            PlayerDied();
         }
 
         //healthBar.fillAmount = health / originalHealth;
@@ -113,6 +111,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Quit");
         }
     }
+
+    void PlayerDied()
+    {
+        playerDie.PlayFeedbacks(gameObject.transform.position);
+        Destroy(gameObject);
+    }
+    
 
     IEnumerator Dash()
     {
@@ -159,7 +164,6 @@ public class PlayerController : MonoBehaviour
             {
                 impulseSource.GenerateImpulse();
             }
-
         }
     }
 

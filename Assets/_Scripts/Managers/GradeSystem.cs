@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MoreMountains.Feedbacks;
-using Cinemachine;
 
 [System.Serializable]
 public struct DifficultyLevel
@@ -64,8 +63,6 @@ public class GradeSystem : MonoBehaviour
     public static void TriggerEnemDestroyed(Vector3 enemyPosition)
     {
         OnEnemyDestroy?.Invoke(enemyPosition);
-
-        
     }
 
     public void AddScore(Vector3 enemyPosition)
@@ -76,7 +73,7 @@ public class GradeSystem : MonoBehaviour
         {
             currentLevelIndex = 0;
         }
-        enemyKilled.clip = audioClips[currentLevelIndex];  // 更换到下一个音频剪辑
+        enemyKilled.clip = audioClips[currentLevelIndex];
         
         // Camera Shake
         Cinemachine.CinemachineImpulseSource impulseSource = Camera.main.GetComponent<Cinemachine.CinemachineImpulseSource>();
@@ -84,14 +81,10 @@ public class GradeSystem : MonoBehaviour
         {
             impulseSource.GenerateImpulse();
         }
-        
-        
         enemyKilled.Play();
         playerEnemy.PlayFeedbacks(enemyPosition);
-        
-
-
     }
+    
     //------------------------------------------- CheckDifficulty ----------------------------------
     private void CheckDifficulty()
     {
@@ -111,7 +104,5 @@ public class GradeSystem : MonoBehaviour
     {
         DifficultyLevel currentLevel = levels[currentLevelIndex];
         uiText.color = currentLevel.uiTextColor;
-
     }
-  
 }

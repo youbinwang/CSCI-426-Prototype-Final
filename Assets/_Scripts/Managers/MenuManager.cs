@@ -8,7 +8,7 @@ public class MenuManager : MonoBehaviour
 {
   public void EnterGame()
     {
-        SceneManager.LoadScene("BoScene");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void QuitGame()
